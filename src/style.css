@@ -1,0 +1,71 @@
+body {
+    color: #292929;
+  }
+  
+  h1 {
+    margin: 20px 0 10px;
+  }
+  
+  ul {
+    list-style: none;
+    text-align: right;
+    color: #929292;
+  }
+  
+  .container {
+    border: 1px solid #929292;
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .row {
+    margin: 20px 0;
+    border-radius: 6px;
+  }
+  
+  .card {
+    text-align: center;
+  }
+  .todayDayTemperature {
+    font-size: 56px;
+    font-weight: 700;
+  }
+  
+  .dayTemperature {
+    font-size: 32px;
+    font-weight: 700;
+  }
+  
+  .nightTemperature {
+    font-size: 20px;
+    color: #929292;
+    margin-left: 5px;
+  }
+  
+  .weatherDetails {
+    font-weight: 700;
+  }
+  
+  .form-control {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .btn {
+    border-radius: 30px;
+    padding: 10px 80px;
+  }
+  .btn-primary {
+    background: #000000;
+    display: block;
+    margin: 0 auto;
+    border: 0;
+  }
+  .btn-secondary {
+    display: block;
+    margin: 30px auto 50px;
+    border: 2px solid #292929;
+    background: transparent;
+    color: #292929;
+  }
