@@ -32,6 +32,11 @@ body {
     font-weight: 700;
   }
   
+  .todayNightTemperature {
+    font-size: 32px;
+    color: #929292;
+    margin-left: 5px;
+  }
   .dayTemperature {
     font-size: 32px;
     font-weight: 700;
@@ -69,3 +74,4 @@ body {
     background: transparent;
     color: #292929;
   }
+  
