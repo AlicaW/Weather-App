@@ -29,15 +29,11 @@ body {
     text-align: center;
   }
   .todayDayTemperature {
-    font-size: 56px;
+    font-size: 64px;
     font-weight: 700;
   }
   
-  .todayNightTemperature {
-    font-size: 32px;
-    color: #929292;
-    margin-left: 5px;
-  }
+
   .dayTemperature {
     font-size: 32px;
     font-weight: 700;
