@@ -11,6 +11,8 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
+
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
   </head>
 
   <body>
@@ -41,13 +43,15 @@
 
       <div class="row">
 
-        <div class="col">
+        <div class="col-6">
           <div class="todayDayTemperature">
-            ☀️ 18°C
+              <span id="weatherIcon"></span>
+              <span id="currentTemperature"></span>
+              <span class="units"> °C | <a href="#"> °F</a></span></span>
           </div>
         </div>
         
-        <div class="col">
+        <div class="col-6">
           <ul>
             <li>Humidity: <span id="humidity"></span>%</li>
             <li>Wind: <span id="wind"></span> m/h</li>
@@ -132,13 +136,7 @@
 
       </div>
 
-
-      
-
-     
-      
-
-      <script src="src/index.js"></script>
+      <script src="src/app.js"></script>
     </div>
   </body>
 </html>

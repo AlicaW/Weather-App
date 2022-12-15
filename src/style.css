@@ -33,6 +33,9 @@ body {
     font-weight: 700;
   }
   
+  .units {
+    font-size: 12px;
+  }
 
   .dayTemperature {
     font-size: 32px;
