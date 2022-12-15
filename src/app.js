@@ -40,11 +40,22 @@ function showTemperature(response) {
     document.querySelector("#weatherIcon").innerHTML = `<img src="http://openweathermap.org/img/wn/${iconElement}@2x.png">`;
 }
 
+    function search(city) { 
+        let apiKey = "597c40c39084687093b091cd48b366f8";
+        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+        
+        axios.get(apiUrl).then(showTemperature);
 
-    let apiKey = "597c40c39084687093b091cd48b366f8";
-    let city = "Hamburg";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    
-    axios.get(apiUrl).then(showTemperature);
+    }
 
+    function handleSubmit(event){
+        event.preventDefault();
+        let cityInput = document.querySelector("#search-input");
+        search(cityInput.value);
+    } 
+
+    search("Hamburg");
+
+    let form = document.querySelector("#search-form"); 
+    form.addEventListener("submit", handleSubmit); 
 
