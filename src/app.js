@@ -31,6 +31,8 @@ function showTemperature(response) {
     let dateElement = document.querySelector("#current-time");
     let iconElement = response.data.weather[0].icon;
 
+    celsiusTemperature = response.data.main.temp;
+
     temperatureElement.innerHTML = Math.round(response.data.main.temp);
     cityElement.innerHTML = response.data.name;
     humidityElement.innerHTML = response.data.main.humidity;
@@ -45,7 +47,6 @@ function showTemperature(response) {
         let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
         
         axios.get(apiUrl).then(showTemperature);
-
     }
 
     function handleSubmit(event){
@@ -54,8 +55,32 @@ function showTemperature(response) {
         search(cityInput.value);
     } 
 
-    search("Hamburg");
+    function showFahrenheit(event) {
+        event.preventDefault();
+        let temperatureElement = document.querySelector("#currentTemperature");
+        celsiusLink.classList.remove("active");
+        fahrenheitLink.classList.add("active");
+        let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+        temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+    }
 
+    function showCelsius(event) {
+        event.preventDefault();
+        celsiusLink.classList.add("active");
+        fahrenheitLink.classList.remove("active");
+        let temperatureElement = document.querySelector("#currentTemperature");
+        temperatureElement.innerHTML = Math.round(celsiusTemperature);
+    }
+
+    let celsiusTemperature = null;
+    
     let form = document.querySelector("#search-form"); 
     form.addEventListener("submit", handleSubmit); 
+    
+    let fahrenheitLink = document.querySelector("#fahrenheit-link");
+    fahrenheitLink.addEventListener("click", showFahrenheit);
 
+    let celsiusLink = document.querySelector("#celsius-link");
+    celsiusLink.addEventListener("click", showCelsius);
+    
+    search("Hamburg");
