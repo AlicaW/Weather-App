@@ -22,21 +22,22 @@ function formateDate(timestamp) {
     return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+    console.log(response.data.daily);
     let forecastElement = document.querySelector("#forecast");
 
 
-    let forecastHTML = `<div class="row">`;
     let days = ["Wed", "Thur", "Frid"]; 
+    let forecastHTML = `<div class="row">`;
     days.forEach(function (day) {
 
         forecastHTML = forecastHTML + `
         <div class="col-2 card">
-        <div class="weather-forecast-date">
-        ${day}
-        <div class="emoji">🌤</div> 
-        <div class="weather-forecast-temperature">18°C</div>
-        </div>
+             <div class="weather-forecast-date">
+                 ${day}
+                <div class="emoji">🌤</div> 
+                <div class="weather-forecast-temperature">18°C</div>
+            </div>
         </div> 
         `;
     })
@@ -44,6 +45,13 @@ function displayForecast() {
     forecastHTML = forecastHTML + `</div>`;
 
     forecastElement.innerHTML = forecastHTML; 
+}
+
+function getForecast(coordinates) {
+    
+    let apiKey = "597c40c39084687093b091cd48b366f8";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayForecast);
 }
 
 function showTemperature(response) {
@@ -64,7 +72,11 @@ function showTemperature(response) {
     weatherElement.innerHTML = response.data.weather[0].description;
     dateElement.innerHTML = formateDate(response.data.dt * 1000);
     document.querySelector("#weatherIcon").innerHTML = `<img src="http://openweathermap.org/img/wn/${iconElement}@2x.png">`;
-}
+   
+    getForecast(response.data.coord);
+
+    }
+
 
     function search(city) { 
         let apiKey = "597c40c39084687093b091cd48b366f8";
@@ -108,5 +120,3 @@ function showTemperature(response) {
     celsiusLink.addEventListener("click", showCelsius);
     
     search("Hamburg");
-
-    displayForecast();
