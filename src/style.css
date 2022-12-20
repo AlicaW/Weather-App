@@ -65,17 +65,21 @@ body {
     text-decoration: none;
   }
   
-  .weatherDetails {
-    font-weight: 700;
-  }
-
-  .emoji {
-    font-size: 36px;
+  .weather-forecast-date {
+    margin: 20px 0 0 0;
   }
   
+  .emoji {
+    font-size: 42px;
+  }
+  
+  .weatherDetails {
+    font-weight: 700;
+    margin: 0 0 20px 0;
+  }
+
   .form-control {
     padding: 10px;
-    margin-bottom: 10px;
   }
   
   .btn {

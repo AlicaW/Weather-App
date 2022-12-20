@@ -22,6 +22,33 @@ function formateDate(timestamp) {
     return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+    let forecastElement = document.querySelector("#forecast");
+
+    let forecastHTML = `<div class="row">`;
+    let days = ["Mon", "Tue", "Wed"];
+    days.forEach(function(day){ 
+
+        forecastHTML = forecastHTML + `
+        
+        <div class="col-2">
+            <div class="weather-forecast-date">${day}</div>
+            <img 
+                src=""
+                alt=""
+                widht="42"
+            />
+            <div class="weather-forecast-temperature"> 
+                <span class="weather-forecast-temperature-max"> 18°C </span>
+            </div>
+        </div>    
+
+        `;
+    })
+    forecastHTML = forecastHTML + `</div>`;
+    forecastElement = forecastElement.innerHTML; 
+}
+
 function showTemperature(response) {
     let temperatureElement = document.querySelector("#currentTemperature");
     let cityElement = document.querySelector("#city-name");
@@ -33,6 +60,7 @@ function showTemperature(response) {
 
     celsiusTemperature = response.data.main.temp;
 
+    
     temperatureElement.innerHTML = Math.round(response.data.main.temp);
     cityElement.innerHTML = response.data.name;
     humidityElement.innerHTML = response.data.main.humidity;
@@ -84,3 +112,5 @@ function showTemperature(response) {
     celsiusLink.addEventListener("click", showCelsius);
     
     search("Hamburg");
+
+    displayForecast ();
