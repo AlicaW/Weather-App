@@ -90,7 +90,6 @@ function showTemperature(response) {
 
     }
 
-
     function search(city) { 
         let apiKey = "597c40c39084687093b091cd48b366f8";
         let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -104,32 +103,9 @@ function showTemperature(response) {
         search(cityInput.value);
     } 
 
-    function showFahrenheit(event) {
-        event.preventDefault();
-        let temperatureElement = document.querySelector("#currentTemperature");
-        celsiusLink.classList.remove("active");
-        fahrenheitLink.classList.add("active");
-        let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-        temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-    }
-
-    function showCelsius(event) {
-        event.preventDefault();
-        celsiusLink.classList.add("active");
-        fahrenheitLink.classList.remove("active");
-        let temperatureElement = document.querySelector("#currentTemperature");
-        temperatureElement.innerHTML = Math.round(celsiusTemperature);
-    }
-
     let celsiusTemperature = null;
     
     let form = document.querySelector("#search-form"); 
     form.addEventListener("submit", handleSubmit); 
-    
-    let fahrenheitLink = document.querySelector("#fahrenheit-link");
-    fahrenheitLink.addEventListener("click", showFahrenheit);
-
-    let celsiusLink = document.querySelector("#celsius-link");
-    celsiusLink.addEventListener("click", showCelsius);
     
     search("Hamburg");
